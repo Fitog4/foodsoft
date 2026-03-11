@@ -98,6 +98,7 @@ group :development do
   gem 'bullet'
   # Display Active Record queries as tables in the console
   gem 'table_print'
+  gem 'debug'
 end
 
 group :development, :test do
@@ -135,3 +136,5 @@ group :test do
   # plugins with tests deactivated by default
   gem 'foodsoft_b85', path: 'plugins/b85'
 end
+
+gem "ruby-lsp", "~> 0.26.7", :group => :development

@@ -6,6 +6,7 @@ services:
     command: ./proc-start web
     ports:
       - "3000:3000"
+      - "12345:12345"
 
   foodsoft_worker:
     build:
@@ -23,6 +24,7 @@ services:
       - DATABASE_CLEANER_ALLOW_REMOTE_DATABASE_URL=true
       - MAILCATCHER_ADDRESS=mailcatcher
       - MAILCATCHER_PORT=25
+      - DISABLE_SPRING=1
 
   mailcatcher:
     image: tophfr/mailcatcher

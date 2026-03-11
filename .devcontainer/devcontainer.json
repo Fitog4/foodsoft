@@ -1,0 +1,16 @@
+{
+  "name": "Foodsoft",
+  "dockerComposeFile": "../docker-compose-dev.yml",
+  "service": "foodsoft",
+  "workspaceFolder": "/app",
+  "overrideCommand": false,
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "koichisasada.vscode-rdbg",
+        "shopify.ruby-lsp"
+      ]
+    }
+  }
+}
+

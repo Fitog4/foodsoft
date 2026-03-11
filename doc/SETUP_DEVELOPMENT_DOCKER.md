@@ -1,4 +1,5 @@
 # Foodsoft on Docker
+<!-- I used this to deploy -->
 
 This document explains setting up Foodsoft with Docker for development.
 system. Another option is to run it [within an existing system](SETUP_DEVELOPMENT.md).

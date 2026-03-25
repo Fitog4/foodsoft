@@ -5,9 +5,7 @@
       "type": "rdbg",
       "name": "Attach Rails rdbg",
       "request": "attach",
-      "debugPort": "localhost:12345",
-      "remoteWorkspaceRoot": "/app",
-      "localWorkspaceRoot": "${workspaceFolder}"
+      "debugPort": "localhost:12345"
     }
   ]
 }

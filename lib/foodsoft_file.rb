@@ -15,7 +15,7 @@ class FoodsoftFile
                   name: row[2],
                   supplier_order_unit: ArticleUnitsLib.get_code_for_unit_name(row[3]),
                   unit: row[4],
-                  article_unit_ratios: FoodsoftFile.parse_ratios_cell(row[5]),
+                  article_unit_ratios: FoodsoftFile.parse_ratios_cell(row[5], index),
                   minimum_order_quantity: row[6],
                   billing_unit: ArticleUnitsLib.get_code_for_unit_name(row[7]),
                   group_order_granularity: row[8],
@@ -35,12 +35,13 @@ class FoodsoftFile
     articles
   end
 
-  def self.parse_ratios_cell(ratios_cell)
+  def self.parse_ratios_cell(ratios_cell, row_index)
     return [] if ratios_cell.blank?
 
     previous_quantity = nil
     ratios = ratios_cell.split(/(?<!\\), /).each_with_index.map do |ratio_str, index|
       md = ratio_str.gsub('\\\\', '\\').gsub('\\,', ',').match(/(?<quantity>[+-]?(?:[0-9]*[.])?[0-9]+) (?<unit_name>.*)/)
+      raise "Cannot read article_unit_ratios, cannot parse quantity and unit_name from #{ratio_str} on row #{row_index}" if md.nil?
       quantity = md[:quantity].to_d
       calculated_quantity = previous_quantity.nil? ? quantity : quantity * previous_quantity
       previous_quantity = calculated_quantity
